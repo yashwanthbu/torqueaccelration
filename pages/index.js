@@ -59,17 +59,17 @@ export default function HomePage() {
     }
   }
 
-  const deposit = async() => {
+  const acceleration = async() => {
     if (atm) {
-      let tx = await atm.deposit(1);
+      let tx = await atm.acceleration(2,50);
       await tx.wait()
       getBalance();
     }
   }
 
-  const withdraw = async() => {
+  const torque = async() => {
     if (atm) {
-      let tx = await atm.withdraw(1);
+      let tx = await atm.torque(25,5);
       await tx.wait()
       getBalance();
     }
@@ -93,9 +93,9 @@ export default function HomePage() {
     return (
       <div>
         <p>Your Account: {account}</p>
-        <p>Your Balance: {balance}</p>
-        <button onClick={deposit}>Deposit 1 ETH</button>
-        <button onClick={withdraw}>Withdraw 1 ETH</button>
+        <p>Result: {balance}</p>
+        <button onClick={acceleration}>Acceleration</button>
+        <button onClick={torque}>Torque</button>
       </div>
     )
   }
@@ -104,11 +104,13 @@ export default function HomePage() {
 
   return (
     <main className="container">
-      <header><h1>Welcome to the Metacrafters ATM!</h1></header>
+      <header><h1>Finding Acceleration and Torque</h1></header>
       {initUser()}
       <style jsx>{`
         .container {
-          text-align: center
+          text-align: center;
+          background-color:green;
+          border: 2px solid black;
         }
       `}
       </style>
